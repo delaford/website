@@ -1,0 +1,29 @@
+/* // Fonts
+// @import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
+*/
+
+@import url("spectre.css/dist/spectre.min.css");
+
+@tailwind preflight;
+@tailwind utilities;
+
+body {
+  margin:0;
+  padding: 0;
+  background:#ebebeb;
+}
+
+#app {
+  width: 65%;
+  margin: 0 auto;
+}
+
+header.navbar {
+  margin:.5em 0;
+}
+
+
+div.bg {
+  background-color: #fff;
+  padding: .5em .75em;
+}

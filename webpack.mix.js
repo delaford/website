@@ -1,4 +1,18 @@
 let mix = require('laravel-mix');
+require('laravel-mix-purgecss');
 
 mix.js('resources/assets/js/app.js', 'public/js')
-  .sass('resources/assets/sass/app.scss', 'public/css');
+  .postCss('resources/assets/css/app.css', 'public/css')
+  .version()
+  .sourceMaps()
+  .options({
+    postCss: [
+      require('postcss-import')(),
+      require('tailwindcss')(),
+      require('postcss-cssnext')({
+        // Mix adds autoprefixer already, don't need to run it twice
+        features: { autoprefixer: false }
+      }),
+    ]
+  })
+  .purgeCss();

@@ -1,26 +1,31 @@
-<!doctype html>
-<html lang="{{ app()->getLocale() }}">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layouts.app')
 
-        <title>Navarra</title>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-                        <a href="{{ route('register') }}">Register</a>
-                    @endauth
+@section('content')
+    <div class="empty">
+        <div class="columns">
+            <div class="column col-7">
+                <div class="empty-icon">
+                    <i class="fas fa-cubes fa-5x"></i>
                 </div>
-            @endif
-
-            Hello.
+                <p class="empty-title h5">Welcome to Navarra.</p>
+                <p class="empty-subtitle">Register to play in seconds!</p>
+                <div class="empty-action">
+                    <a href="{{ route('register') }}" class="btn btn-primary">Start your Adventure</a>
+                </div>
+            </div>
+            <div class="column col-5 text-left">
+                <h4 class="subtitle">Features</h4>
+                <ul>
+                    <li>Kill rats, goblins and more.</li>
+                    <li>Mine your ore; smith your items.</li>
+                    <li>Track your statistics indepth.</li>
+                    <li>Trade &amp; talk with other players.</li>
+                    <li>Complete quests; earn rewards.</li>
+                    <li>Free to play; no fees.</li>
+                    <li>See how you fare in the <a href="{{ url('/hiscores') }}">hiscores</a>.</li>
+                </ul>
+            </div>
         </div>
-    </body>
-</html>
+
+    </div>
+@endsection
