@@ -1,5 +1,5 @@
-![logo]
+<p align="center">
+  <img src="https://rawgit.com/Navarra/website/master/public/assets/header.png" width="650">
+</p>
 
-Register your account here and make sure all appropriate tables sync with the `user_id` such as `bank`, `wear`, `inventory`, etc.
-
-[logo]: https://cdn.rawgit.com/Navarra/website/f11ce4e3/public/assets/header.png "Navarra"
+Register your player here to start your aventure ... `todaaaaay`.
