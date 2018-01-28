@@ -2,7 +2,12 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Bank;
 use App\User;
+use App\Wear;
+use App\Stats;
+use App\Skills;
+use App\Inventory;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -48,8 +53,7 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
+            'username' => 'required|string|min:1|max:15|unique:users',
             'password' => 'required|string|min:6|confirmed',
         ]);
     }
@@ -62,10 +66,34 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
+        $player = User::create([
+            'username' => $data['username'],
             'password' => bcrypt($data['password']),
         ]);
+
+        $playerId = $player->id;
+        $data = serialize(json_encode('{}'));
+
+        $models = [
+            'dynamic' => [
+                Bank::class,
+                Inventory::class,
+            ],
+            'static' => [
+                Skills::class,
+                Stats::class,
+                Wear::class
+            ]
+        ];
+
+        foreach ($models['dynamic'] as $key) {
+            $key::create(['user_id' => $playerId, 'data' => '{}']);
+        }
+
+        foreach ($models['static'] as $key) {
+            $key::create(['user_id' => $playerId]);
+        }
+
+        return $player;
     }
 }
