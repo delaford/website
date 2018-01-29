@@ -18,7 +18,7 @@ class CreateStatsTable extends Migration
             $table->unsignedInteger('user_id')->unique();
 
             $table->unsignedInteger('damage_given')->default(0);
-            $table->unsignedInteger('damange_taken')->default(0);
+            $table->unsignedInteger('damage_taken')->default(0);
             $table->unsignedInteger('deaths')->default(0);
             $table->unsignedInteger('monsters_killed')->default(0);
             $table->unsignedInteger('times_logged')->default(0);

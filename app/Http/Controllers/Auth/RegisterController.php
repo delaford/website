@@ -2,12 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Bank;
 use App\User;
-use App\Wear;
-use App\Stats;
-use App\Skills;
-use App\Inventory;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -32,7 +27,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/dashboard';
 
     /**
      * Create a new controller instance.
@@ -70,29 +65,6 @@ class RegisterController extends Controller
             'username' => $data['username'],
             'password' => bcrypt($data['password']),
         ]);
-
-        $playerId = $player->id;
-        $data = serialize(json_encode('{}'));
-
-        $models = [
-            'dynamic' => [
-                Bank::class,
-                Inventory::class,
-            ],
-            'static' => [
-                Skills::class,
-                Stats::class,
-                Wear::class
-            ]
-        ];
-
-        foreach ($models['dynamic'] as $key) {
-            $key::create(['user_id' => $playerId, 'data' => '{}']);
-        }
-
-        foreach ($models['static'] as $key) {
-            $key::create(['user_id' => $playerId]);
-        }
 
         return $player;
     }

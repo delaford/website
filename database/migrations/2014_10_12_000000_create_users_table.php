@@ -18,15 +18,15 @@ class CreateUsersTable extends Migration
             $table->string('username');
             $table->string('email')->unique()->nullable();
 
-            $table->unsignedInteger('x')->default('14');
-            $table->unsignedInteger('y')->default('108');
-            $table->unsignedInteger('map')->default('1');
+            $table->unsignedInteger('x')->default(14);
+            $table->unsignedInteger('y')->default(108);
+            $table->unsignedInteger('map')->default(1);
             $table->boolean('online')->default(false);
-            $table->unsignedInteger('member_level')->default('1');
+            $table->unsignedInteger('member_level')->default(1);
 
-            $table->unsignedInteger('level')->default('1');
-            $table->unsignedInteger('hp_current')->default('10');
-            $table->unsignedInteger('hp_max')->default('10');
+            $table->unsignedInteger('level')->default(1);
+            $table->unsignedInteger('hp_current')->default(10);
+            $table->unsignedInteger('hp_max')->default(10);
 
             $table->string('password');
             $table->rememberToken();
