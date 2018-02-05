@@ -12,7 +12,7 @@
                 </div>
 
                 <div class="col-7">
-                    <input class="form-input" type="text" id="username_input" name="username" value="{{ old('username') }}" autofocus required>
+                    <input value="dan" class="form-input" type="text" id="username_input" name="username" value="{{ old('username') }}" autofocus required>
 
                     @if ($errors->has('username'))
                         <p class="form-input-hint">{{ $errors->first('username') }}</p>
@@ -27,7 +27,7 @@
                 </div>
 
                 <div class="col-7">
-                    <input class="form-input" id="password_input" type="password" name="password" required>
+                    <input value="soccer" class="form-input" id="password_input" type="password" name="password" required>
 
                     @if ($errors->has('password'))
                         <p class="form-input-hint">{{ $errors->first('password') }}</p>
