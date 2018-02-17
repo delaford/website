@@ -3,6 +3,7 @@
 namespace App\Exceptions;
 
 use Exception;
+use Illuminate\Auth\AuthenticationException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 
 class Handler extends ExceptionHandler
@@ -25,6 +26,18 @@ class Handler extends ExceptionHandler
         'password',
         'password_confirmation',
     ];
+
+    /**
+     * Let the user know they are unauthorized to perform this request.
+     *
+     * @param  \Illuminiate\Http\Request                $request
+     * @param  \Illuminate\Auth\AuthenticationException $exception
+     * @return json
+     */
+    protected function unauthenticated($request, AuthenticationException $exception)
+    {
+        return response()->json(['error' => 'Unauthenticated.'], 401);
+    }
 
     /**
      * Report or log an exception.

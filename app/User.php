@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Webpatser\Uuid\Uuid;
 use Tymon\JWTAuth\Contracts\JWTSubject;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -41,6 +42,10 @@ class User extends Authenticatable implements JWTSubject
                 $key::create(['user_id' => $playerId]);
             }
         });
+
+        self::creating(function ($model) {
+            $model->uuid = (string) Uuid::generate(4);
+        });
     }
 
     /**
@@ -49,7 +54,7 @@ class User extends Authenticatable implements JWTSubject
      * @var array
      */
     protected $fillable = [
-        'username', 'email', 'password', 'x', 'y', 'map', 'online', 'member_level', 'level', 'hp_current', 'hp_max'
+        'username', 'uuid', 'email', 'password', 'x', 'y', 'map', 'online', 'member_level', 'level', 'hp_current', 'hp_max'
     ];
 
     /**

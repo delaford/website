@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Auth;
+use App\Wear;
+use App\Skills;
 use Illuminate\Http\Request;
 
 class AuthController extends Controller
@@ -42,7 +44,59 @@ class AuthController extends Controller
      */
     public function me()
     {
-        return response()->json(auth()->user());
+        $player = auth()->user();
+
+        $player = [
+            'x' => $player['x'],
+            'y' => $player['y'],
+            'username' => $player['username'],
+            'uuid' => $player['uuid'],
+            'level' => $player['level'],
+            'online' => true,
+            'sign_in' => time(),
+            'hp' => [
+                'current' => $player['hp_current'],
+                'max' => $player['hp_max']
+            ]
+        ];
+
+        $getSkills = Skills::find(auth()->id());
+
+        $skillList = ['attack', 'defence', 'mining', 'smithing', 'fishing', 'cooking'];
+
+        $skills = [];
+
+        foreach($skillList as $skill) {
+            $skills[] = [
+                'level' => $getSkills[$skill . '_level'],
+                'exp' => $getSkills[$skill . '_experience'],
+                'name' => ucfirst($skill),
+            ];
+        }
+
+        $player = array_merge($player, ['skills' => $skills]);
+
+        $getWear = Wear::find(auth()->id());
+
+        $wear = [
+          'head' => $getWear['head'],
+          'back' => $getWear['back'],
+          'necklace' => $getWear['necklace'],
+          'arrows' => [
+            'quantity' => $getWear['arrows_qty'],
+            'id' => $getWear['arrows_id']
+          ],
+          'right_hand' => $getWear['right_hand'],
+          'armor' => $getWear['armor'],
+          'left_hand' => $getWear['left_hand'],
+          'gloves' => $getWear['gloves'],
+          'feet' => $getWear['feet'],
+          'ring' => $getWear['ring']
+        ];
+
+        $player = array_merge($player, ['wear' => $wear]);
+
+        return response()->json($player);
     }
 
     /**
