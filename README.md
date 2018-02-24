@@ -6,4 +6,4 @@
 
 Register your player here to start your adventure.
 
-This Git repo is installed alongside https://github.com/Navarra/website.
+This Git repo is installed alongside https://github.com/Navarra/game.
