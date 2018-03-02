@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Auth;
 use App\Wear;
+use App\User;
 use App\Skills;
 use Illuminate\Http\Request;
 
@@ -36,6 +37,24 @@ class AuthController extends Controller
 
         return $this->respondWithToken($token);
     }
+
+    public function update()
+    {
+        $uuid = request('uuid');
+
+        $user = User::where('uuid', $uuid)->first();
+
+        $data = collect(request('data'));
+
+        $requested = collect($user);
+
+        $data = $data->diffAssoc($requested)->toArray();
+
+        $user = User::where('uuid', $uuid)->update($data);
+
+        return response(200);
+    }
+
 
     /**
      * Get the authenticated User.
@@ -96,6 +115,8 @@ class AuthController extends Controller
 
         $player = array_merge($player, ['wear' => $wear]);
 
+        auth()->user()->setOnline();
+
         return response()->json($player);
     }
 
@@ -106,6 +127,7 @@ class AuthController extends Controller
      */
     public function logout()
     {
+        auth()->user()->setOnline(false);
         auth()->guard('api')->logout();
 
         return response()->json(['message' => 'Successfully logged out']);

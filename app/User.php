@@ -134,4 +134,9 @@ class User extends Authenticatable implements JWTSubject
     {
         return [];
     }
+
+    public function setOnline($status = true)
+    {
+        $this->update(['online' => $status]);
+    }
 }
