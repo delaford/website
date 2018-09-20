@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use Auth;
-use App\Wear;
 use App\User;
+use App\Wear;
 use App\Skills;
+use App\Inventory;
 use Illuminate\Http\Request;
 
 class AuthController extends Controller
@@ -44,7 +45,9 @@ class AuthController extends Controller
 
         $user = User::where('uuid', $uuid)->first();
 
-        $data = collect(request('data'));
+        $data = collect(request('playerData'));
+
+        Inventory::where('user_id', $user->id)->update(['data' => collect(request('inventoryData'))]);
 
         $requested = collect($user);
 
@@ -54,7 +57,6 @@ class AuthController extends Controller
 
         return response(200);
     }
-
 
     /**
      * Get the authenticated User.
@@ -79,13 +81,14 @@ class AuthController extends Controller
             ]
         ];
 
+        // Get skills
         $getSkills = Skills::find(auth()->id());
 
         $skillList = ['attack', 'defence', 'mining', 'smithing', 'fishing', 'cooking'];
 
         $skills = [];
 
-        foreach($skillList as $skill) {
+        foreach ($skillList as $skill) {
             $skills[] = [
                 'level' => $getSkills[$skill . '_level'],
                 'exp' => $getSkills[$skill . '_experience'],
@@ -95,6 +98,7 @@ class AuthController extends Controller
 
         $player = array_merge($player, ['skills' => $skills]);
 
+        // Get character wear
         $getWear = Wear::find(auth()->id());
 
         $wear = [
@@ -114,6 +118,10 @@ class AuthController extends Controller
         ];
 
         $player = array_merge($player, ['wear' => $wear]);
+
+        $getInventory = Inventory::find(auth()->id());
+
+        $player = array_merge($player, ['inventory' => $getInventory]);
 
         auth()->user()->setOnline();
 

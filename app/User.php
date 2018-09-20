@@ -20,7 +20,7 @@ class User extends Authenticatable implements JWTSubject
 
         static::created(function ($user) {
             $playerId = $user->id;
-            $data = serialize(json_encode('{}'));
+            $data = json_encode('{}');
 
             $models = [
                 'dynamic' => [
