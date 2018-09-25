@@ -33,7 +33,7 @@ class AuthController extends Controller
         $token = auth()->guard('api')->attempt($credentials);
 
         if (!$token) {
-            return response()->json($validator->errors(), 401);
+            return response()->json($token->errors(), 401);
         }
 
         return $this->respondWithToken($token);
