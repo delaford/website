@@ -16,7 +16,7 @@
             <p class="empty-title h5">No statistics to show</p>
             <p class="empty-subtitle">Start playing a bit so we can show you some pretty graphs.</p>
             <div class="empty-action">
-            <a href="https://play.navarra-rpg.com" class="btn btn-primary">Play {{ config('app.name') }}</a>
+            <a href="https://play.delaford.com" class="btn btn-primary">Play {{ config('app.name') }}</a>
             </div>
         </div>
     </div>

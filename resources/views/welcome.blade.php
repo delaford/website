@@ -7,7 +7,7 @@
                 <div class="empty-icon">
                     <i class="fas fa-cubes fa-5x"></i>
                 </div>
-                <p class="empty-title h5">Welcome to Navarra.</p>
+                <p class="empty-title h5">Welcome to Delaford.</p>
                 <p class="empty-subtitle">Register to play in seconds!</p>
                 <div class="empty-action">
                     <a href="{{ route('register') }}" class="btn btn-primary">Start your Adventure</a>
