@@ -25,7 +25,9 @@ class User extends Authenticatable implements JWTSubject
             $models = [
                 'dynamic' => [
                     Bank::class,
-                    Inventory::class,
+                ],
+                'array' => [
+                    Inventory::class
                 ],
                 'static' => [
                     Skills::class,
@@ -36,6 +38,10 @@ class User extends Authenticatable implements JWTSubject
 
             foreach ($models['dynamic'] as $key) {
                 $key::create(['user_id' => $playerId, 'data' => $data]);
+            }
+
+            foreach ($models['array'] as $key) {
+                $key::create(['user_id' => $playerId, 'data' => '[]']);
             }
 
             foreach ($models['static'] as $key) {
@@ -54,7 +60,7 @@ class User extends Authenticatable implements JWTSubject
      * @var array
      */
     protected $fillable = [
-        'username', 'uuid', 'email', 'password', 'x', 'y', 'map', 'online', 'member_level', 'level', 'hp_current', 'hp_max'
+        'username', 'uuid', 'email', 'password', 'x', 'y', 'map', 'online', 'member_level', 'level', 'hp_current', 'hp_max', 'inventory',
     ];
 
     /**
