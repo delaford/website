@@ -1,8 +1,6 @@
-<p align="center">
-  <img src="https://cdn.rawgit.com/Delaford/website/6aabe0f6/public/assets/header.png" width="650">
-</p>
+# Delaford website
 
-[![Build Status](https://travis-ci.org/Delaford/website.svg?branch=master)](https://travis-ci.org/Delaford/website) [![Join the chat at https://gitter.im/Delaford/website](https://badges.gitter.im/Delaford/website.svg)](https://gitter.im/Delaford/website?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Build Status](https://travis-ci.org/delaford/website.svg?branch=master)](https://travis-ci.org/Delaford/website) 
 
 Register your player here to start your adventure.
 
