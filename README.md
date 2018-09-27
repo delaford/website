@@ -11,24 +11,24 @@ Register your player here to start your adventure.
 
 ---
 
-First, create your `MySQL` database. Easy peasy. Call it `navarra`, I guess.
+First, create your `MySQL` database. Easy peasy. Call it `delaford`, I guess. Then fork this repo.
 
-Secondly, in your terminal, make a new directory called `navarra` and type the following:
+Secondly, in your terminal, make a new directory called `delaford` and type the following:
 
-      $ git clone https://github.com/Navarra/website
-      $ cp .env.example .env
+      git clone https://github.com/YOUR_USERNAME/website
+      cp .env.example .env
 
 Then, let's edit the `.env` file we just created from our last command (`cp`) and put in the database credentials.
 
-Now, let's make the website. In your terminal, at `/navarra/website/`, type:
+Now, let's make the website. In your terminal, at `/delaford/website/`, type:
 
-      $ composer install
-      $ php artisan jwt:secret
-      $ php artisan key:generate
-      $ php artisan migrate
-      $ php artisan config:cache
-      $ npm install
-      $ npm dev
+      composer install
+      php artisan jwt:secret
+      php artisan key:generate
+      php artisan migrate
+      php artisan config:cache
+      npm install
+      npm run dev
 
 Your website's CSS should now be compiled and your database's tables should now be created. Also, your secret JWT authentication key was created along with the Laravel application key.
 
@@ -40,4 +40,4 @@ Now go to `https://localhost:8000` and register your player account. You are all
 
 ### Caution
 
-This is NOT needed to run the game locally. When Navarra runs locally, it creates a local player.
+This is NOT needed to run the game locally. When Delaford runs locally, it creates a local player.
