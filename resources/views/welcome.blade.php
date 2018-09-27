@@ -12,6 +12,7 @@
                 <div class="empty-action">
                     <a href="{{ route('register') }}" class="btn btn-primary">Register</a> or <a href="https://play.delaford.com" class="btn btn-primary">Play Now</a>
                 </div>
+                <p class="empty-subtitle"><em>Summer 2019</em></p>
             </div>
             <div class="column col-5 text-left">
                 <h4 class="subtitle">Features</h4>
