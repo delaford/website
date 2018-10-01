@@ -66,6 +66,7 @@ class AuthController extends Controller
     public function me()
     {
         $player = auth()->user();
+        $id = auth()->id();
 
         $player = [
             'x' => $player['x'],
@@ -82,7 +83,7 @@ class AuthController extends Controller
         ];
 
         // Get skills
-        $getSkills = Skills::find(auth()->id());
+        $getSkills = Skills::find($id);
 
         $skillList = ['attack', 'defence', 'mining', 'smithing', 'fishing', 'cooking'];
 
@@ -99,7 +100,7 @@ class AuthController extends Controller
         $player = array_merge($player, ['skills' => $skills]);
 
         // Get character wear
-        $getWear = Wear::find(auth()->id());
+        $getWear = Wear::find($id);
 
         $wear = [
           'head' => $getWear['head'],
@@ -119,11 +120,13 @@ class AuthController extends Controller
 
         $player = array_merge($player, ['wear' => $wear]);
 
-        $getInventory = Inventory::find(auth()->id());
+        $getInventory = Inventory::find($id);
 
-        $player = array_merge($player, ['inventory' => $getInventory]);
+        $player = array_merge($player, ['inventory' => $getInventory['data']]);
 
-        auth()->user()->setOnline();
+        if (auth()->user()) {
+            auth()->user()->setOnline();            
+        }
 
         return response()->json($player);
     }

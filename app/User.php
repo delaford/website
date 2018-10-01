@@ -41,7 +41,7 @@ class User extends Authenticatable implements JWTSubject
             }
 
             foreach ($models['array'] as $key) {
-                $key::create(['user_id' => $playerId, 'data' => '[]']);
+                $key::create(['user_id' => $playerId, 'data' => []]);
             }
 
             foreach ($models['static'] as $key) {
