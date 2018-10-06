@@ -49,6 +49,8 @@ class AuthController extends Controller
 
         Inventory::where('user_id', $user->id)->update(['data' => collect(request('inventoryData'))]);
 
+        Wear::where('user_id', $user->id)->update(request('wearData'));
+
         $requested = collect($user);
 
         $data = $data->diffAssoc($requested)->toArray();

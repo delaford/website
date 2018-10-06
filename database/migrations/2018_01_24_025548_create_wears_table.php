@@ -17,17 +17,17 @@ class CreateWearsTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('user_id')->unique();
 
-            $table->unsignedInteger('armor')->nullable();
-            $table->unsignedInteger('arrows_id')->nullable();
-            $table->unsignedInteger('arrows_qty')->nullable();
-            $table->unsignedInteger('back')->nullable();
-            $table->unsignedInteger('feet')->nullable();
-            $table->unsignedInteger('gloves')->nullable();
-            $table->unsignedInteger('ring')->nullable();
-            $table->unsignedInteger('helmet')->nullable();
-            $table->unsignedInteger('left_hand')->nullable();
-            $table->unsignedInteger('right_hand')->nullable();
-            $table->unsignedInteger('necklace')->nullable();
+            $table->string('armor', 50)->nullable();
+            $table->string('arrows_id', 50)->nullable();
+            $table->string('arrows_qty', 50)->nullable();
+            $table->string('back', 50)->nullable();
+            $table->string('feet', 50)->nullable();
+            $table->string('gloves', 50)->nullable();
+            $table->string('head', 50)->nullable();
+            $table->string('left_hand', 50)->nullable();
+            $table->string('necklace', 50)->nullable();
+            $table->string('right_hand', 50)->nullable();
+            $table->string('ring', 50)->nullable();
 
             $table->timestamps();
         });
