@@ -13,6 +13,7 @@
                     <a href="{{ route('register') }}" class="btn btn-primary">Register</a> or <a href="https://play.delaford.com" class="btn btn-primary">Play Now</a>
                 </div>
                 <p class="empty-subtitle"><em>Summer 2019</em></p>
+                <p class="empty-subtitle" style="margin-top:1em">Keep up-to-date with latest updates<br />on the official <a href="https://delafordgame.wordpress.com">blog</a>.</p>
             </div>
             <div class="column col-5 text-left">
                 <h4 class="subtitle">Features</h4>
