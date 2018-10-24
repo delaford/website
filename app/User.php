@@ -2,10 +2,10 @@
 
 namespace App;
 
-use Webpatser\Uuid\Uuid;
-use Tymon\JWTAuth\Contracts\JWTSubject;
-use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
+use Tymon\JWTAuth\Contracts\JWTSubject;
+use Webpatser\Uuid\Uuid;
 
 class User extends Authenticatable implements JWTSubject
 {
@@ -30,8 +30,8 @@ class User extends Authenticatable implements JWTSubject
                 'static' => [
                     Skills::class,
                     Stats::class,
-                    Wear::class
-                ]
+                    Wear::class,
+                ],
             ];
 
             foreach ($models['array'] as $key) {
@@ -76,7 +76,7 @@ class User extends Authenticatable implements JWTSubject
     ];
 
     /**
-     * A player has one bank to store their items in
+     * A player has one bank to store their items in.
      */
     public function bank()
     {
@@ -84,7 +84,7 @@ class User extends Authenticatable implements JWTSubject
     }
 
     /**
-     * A player has one inventory to slot their items
+     * A player has one inventory to slot their items.
      */
     public function inventory()
     {
@@ -92,7 +92,7 @@ class User extends Authenticatable implements JWTSubject
     }
 
     /**
-     * A player has one set of skills to level up
+     * A player has one set of skills to level up.
      */
     public function skills()
     {
@@ -100,7 +100,7 @@ class User extends Authenticatable implements JWTSubject
     }
 
     /**
-     * A player has one set of statistics to be tracked
+     * A player has one set of statistics to be tracked.
      */
     public function stats()
     {
@@ -108,7 +108,7 @@ class User extends Authenticatable implements JWTSubject
     }
 
     /**
-     * A player can only wear one set of items/clothes
+     * A player can only wear one set of items/clothes.
      */
     public function wear()
     {

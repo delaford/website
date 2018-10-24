@@ -2,8 +2,8 @@
 
 namespace Tests\Feature;
 
-use Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Tests\TestCase;
 
 class RegistrationTest extends TestCase
 {
@@ -43,16 +43,16 @@ class RegistrationTest extends TestCase
     public function a_player_has_their_information_created()
     {
         $this->assertDatabaseHas('users', [
-            'id' => $this->user->id,
-            'username' => $this->user->username,
-            'x' => 14,
-            'y' => 108,
-            'map' => 1,
-            'online' => 0,
+            'id'           => $this->user->id,
+            'username'     => $this->user->username,
+            'x'            => 14,
+            'y'            => 108,
+            'map'          => 1,
+            'online'       => 0,
             'member_level' => 1,
-            'level' => 1,
-            'hp_current' => 10,
-            'hp_max' => 10
+            'level'        => 1,
+            'hp_current'   => 10,
+            'hp_max'       => 10,
         ]);
     }
 
@@ -60,18 +60,18 @@ class RegistrationTest extends TestCase
     public function a_player_has_their_wear_created()
     {
         $this->assertDatabaseHas('wears', [
-            'user_id' => $this->user->id,
-            'armor' => null,
-            'arrows_id' => null,
+            'user_id'    => $this->user->id,
+            'armor'      => null,
+            'arrows_id'  => null,
             'arrows_qty' => null,
-            'back' => null,
-            'feet' => null,
-            'gloves' => null,
-            'ring' => null,
-            'helmet' => null,
-            'left_hand' => null,
+            'back'       => null,
+            'feet'       => null,
+            'gloves'     => null,
+            'ring'       => null,
+            'helmet'     => null,
+            'left_hand'  => null,
             'right_hand' => null,
-            'necklace' => null
+            'necklace'   => null,
         ]);
     }
 
@@ -79,12 +79,12 @@ class RegistrationTest extends TestCase
     public function a_player_has_their_account_stats_created()
     {
         $this->assertDatabaseHas('stats', [
-            'user_id' => $this->user->id,
-            'damage_given' => 0,
-            'damage_taken' => 0,
-            'deaths' => 0,
+            'user_id'         => $this->user->id,
+            'damage_given'    => 0,
+            'damage_taken'    => 0,
+            'deaths'          => 0,
             'monsters_killed' => 0,
-            'times_logged' => 0
+            'times_logged'    => 0,
         ]);
     }
 
@@ -92,7 +92,7 @@ class RegistrationTest extends TestCase
     public function a_player_has_their_bank_created()
     {
         $this->assertDatabaseHas('banks', [
-            'user_id' => $this->user->id
+            'user_id' => $this->user->id,
         ]);
     }
 
@@ -100,7 +100,7 @@ class RegistrationTest extends TestCase
     public function a_player_has_their_inventory_created()
     {
         $this->assertDatabaseHas('inventories', [
-            'user_id' => $this->user->id
+            'user_id' => $this->user->id,
         ]);
     }
 }
