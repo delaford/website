@@ -68,7 +68,7 @@ class RegistrationTest extends TestCase
             'feet' => null,
             'gloves' => null,
             'ring' => null,
-            'helmet' => null,
+            'head' => null,
             'left_hand' => null,
             'right_hand' => null,
             'necklace' => null
