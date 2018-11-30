@@ -3,9 +3,9 @@
 namespace Tests;
 
 use App\Exceptions\Handler;
-use Illuminate\Support\Facades\Schema;
 use Illuminate\Contracts\Debug\ExceptionHandler;
 use Illuminate\Foundation\Testing\TestCase as BaseTestCase;
+use Illuminate\Support\Facades\Schema;
 
 abstract class TestCase extends BaseTestCase
 {
@@ -45,7 +45,7 @@ abstract class TestCase extends BaseTestCase
     {
         $this->oldExceptionHandler = $this->app->make(ExceptionHandler::class);
 
-        $this->app->instance(ExceptionHandler::class, new class extends Handler {
+        $this->app->instance(ExceptionHandler::class, new class() extends Handler {
             public function __construct()
             {
             }

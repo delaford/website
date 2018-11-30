@@ -30,7 +30,8 @@ class StatsController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
+     *
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -41,7 +42,8 @@ class StatsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Stats  $stats
+     * @param \App\Stats $stats
+     *
      * @return \Illuminate\Http\Response
      */
     public function show(Stats $stats)
@@ -52,7 +54,8 @@ class StatsController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Stats  $stats
+     * @param \App\Stats $stats
+     *
      * @return \Illuminate\Http\Response
      */
     public function edit(Stats $stats)
@@ -63,8 +66,9 @@ class StatsController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Stats  $stats
+     * @param \Illuminate\Http\Request $request
+     * @param \App\Stats               $stats
+     *
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Stats $stats)
@@ -75,7 +79,8 @@ class StatsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Stats  $stats
+     * @param \App\Stats $stats
+     *
      * @return \Illuminate\Http\Response
      */
     public function destroy(Stats $stats)
