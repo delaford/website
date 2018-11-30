@@ -30,7 +30,8 @@ class FriendlistController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
+     *
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -41,7 +42,8 @@ class FriendlistController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Friendlist  $friendlist
+     * @param \App\Friendlist $friendlist
+     *
      * @return \Illuminate\Http\Response
      */
     public function show(Friendlist $friendlist)
@@ -52,7 +54,8 @@ class FriendlistController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Friendlist  $friendlist
+     * @param \App\Friendlist $friendlist
+     *
      * @return \Illuminate\Http\Response
      */
     public function edit(Friendlist $friendlist)
@@ -63,8 +66,9 @@ class FriendlistController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Friendlist  $friendlist
+     * @param \Illuminate\Http\Request $request
+     * @param \App\Friendlist          $friendlist
+     *
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Friendlist $friendlist)
@@ -75,7 +79,8 @@ class FriendlistController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Friendlist  $friendlist
+     * @param \App\Friendlist $friendlist
+     *
      * @return \Illuminate\Http\Response
      */
     public function destroy(Friendlist $friendlist)

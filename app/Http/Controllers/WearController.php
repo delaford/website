@@ -30,7 +30,8 @@ class WearController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
+     *
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -41,7 +42,8 @@ class WearController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Wear  $wear
+     * @param \App\Wear $wear
+     *
      * @return \Illuminate\Http\Response
      */
     public function show(Wear $wear)
@@ -52,7 +54,8 @@ class WearController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Wear  $wear
+     * @param \App\Wear $wear
+     *
      * @return \Illuminate\Http\Response
      */
     public function edit(Wear $wear)
@@ -63,8 +66,9 @@ class WearController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Wear  $wear
+     * @param \Illuminate\Http\Request $request
+     * @param \App\Wear                $wear
+     *
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Wear $wear)
@@ -75,7 +79,8 @@ class WearController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Wear  $wear
+     * @param \App\Wear $wear
+     *
      * @return \Illuminate\Http\Response
      */
     public function destroy(Wear $wear)
