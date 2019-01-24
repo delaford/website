@@ -28,6 +28,15 @@
                 </ul>
             </div>
         </div>
+        <div class="columns mt-6">
+            <div class="column col-12">
+                Interesting in joining development? 
+
+                <div class="empty-action">
+                    <a href="https://github.com/delaford/game" class="btn btn-primary">View the Code</a> or <a href="https://docs.delaford.com" class="btn btn-primary">Documentation</a>
+                </div>
+            </div>
+        </div>
 
     </div>
 @endsection
