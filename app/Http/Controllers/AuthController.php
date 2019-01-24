@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Auth;
+use App\Inventory;
+use App\Skills;
 use App\User;
 use App\Wear;
-use App\Skills;
-use App\Inventory;
+use Auth;
 use Illuminate\Http\Request;
 
 class AuthController extends Controller
@@ -71,17 +71,17 @@ class AuthController extends Controller
         $id = auth()->id();
 
         $player = [
-            'x' => $player['x'],
-            'y' => $player['y'],
+            'x'        => $player['x'],
+            'y'        => $player['y'],
             'username' => $player['username'],
-            'uuid' => $player['uuid'],
-            'level' => $player['level'],
-            'online' => true,
-            'sign_in' => time(),
-            'hp' => [
+            'uuid'     => $player['uuid'],
+            'level'    => $player['level'],
+            'online'   => true,
+            'sign_in'  => time(),
+            'hp'       => [
                 'current' => $player['hp_current'],
-                'max' => $player['hp_max']
-            ]
+                'max'     => $player['hp_max'],
+            ],
         ];
 
         // Get skills
@@ -93,9 +93,9 @@ class AuthController extends Controller
 
         foreach ($skillList as $skill) {
             $skills[] = [
-                'level' => $getSkills[$skill . '_level'],
-                'exp' => $getSkills[$skill . '_experience'],
-                'name' => ucfirst($skill),
+                'level' => $getSkills[$skill.'_level'],
+                'exp'   => $getSkills[$skill.'_experience'],
+                'name'  => ucfirst($skill),
             ];
         }
 
@@ -105,19 +105,19 @@ class AuthController extends Controller
         $getWear = Wear::find($id);
 
         $wear = [
-          'head' => $getWear['head'],
-          'back' => $getWear['back'],
+          'head'     => $getWear['head'],
+          'back'     => $getWear['back'],
           'necklace' => $getWear['necklace'],
-          'arrows' => [
+          'arrows'   => [
             'quantity' => $getWear['arrows_qty'],
-            'id' => $getWear['arrows_id']
+            'id'       => $getWear['arrows_id'],
           ],
           'right_hand' => $getWear['right_hand'],
-          'armor' => $getWear['armor'],
-          'left_hand' => $getWear['left_hand'],
-          'gloves' => $getWear['gloves'],
-          'feet' => $getWear['feet'],
-          'ring' => $getWear['ring']
+          'armor'      => $getWear['armor'],
+          'left_hand'  => $getWear['left_hand'],
+          'gloves'     => $getWear['gloves'],
+          'feet'       => $getWear['feet'],
+          'ring'       => $getWear['ring'],
         ];
 
         $player = array_merge($player, ['wear' => $wear]);
@@ -127,7 +127,7 @@ class AuthController extends Controller
         $player = array_merge($player, ['inventory' => $getInventory['data']]);
 
         if (auth()->user()) {
-            auth()->user()->setOnline();            
+            auth()->user()->setOnline();
         }
 
         return response()->json($player);
@@ -159,7 +159,7 @@ class AuthController extends Controller
     /**
      * Get the token array structure.
      *
-     * @param  string $token
+     * @param string $token
      *
      * @return \Illuminate\Http\JsonResponse
      */
@@ -167,8 +167,8 @@ class AuthController extends Controller
     {
         return response()->json([
             'access_token' => $token,
-            'token_type' => 'bearer',
-            'expires_in' => auth('api')->factory()->getTTL() * 60
+            'token_type'   => 'bearer',
+            'expires_in'   => auth('api')->factory()->getTTL() * 60,
         ]);
     }
 }
