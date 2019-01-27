@@ -15,11 +15,11 @@ class Skills extends Model
 
     public function updateSkills($data)
     {
-    	$mining = $data['mining'];
+        $mining = $data['mining'];
 
-    	$this->update([
-    		'mining_level' => $mining['level'],
-    		'mining_experience' => $mining['exp']
-    	]);
+        $this->update([
+            'mining_level'      => $mining['level'],
+            'mining_experience' => $mining['exp'],
+        ]);
     }
 }
