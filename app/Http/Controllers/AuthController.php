@@ -39,6 +39,11 @@ class AuthController extends Controller
         return $this->respondWithToken($token);
     }
 
+    /**
+     * Update a player's profile across all tables
+     * 
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function update()
     {
         $uuid = request('uuid');
@@ -50,6 +55,8 @@ class AuthController extends Controller
         Inventory::where('user_id', $user->id)->update(['data' => collect(request('inventoryData'))]);
 
         Wear::where('user_id', $user->id)->update(request('wearData'));
+
+        Skills::where('user_id', $user->id)->first()->updateSkills(request('skillsData'));
 
         $requested = collect($user);
 
@@ -92,10 +99,9 @@ class AuthController extends Controller
         $skills = [];
 
         foreach ($skillList as $skill) {
-            $skills[] = [
+            $skills[$skill] = [
                 'level' => $getSkills[$skill.'_level'],
-                'exp'   => $getSkills[$skill.'_experience'],
-                'name'  => ucfirst($skill),
+                'exp'   => $getSkills[$skill.'_experience']
             ];
         }
 

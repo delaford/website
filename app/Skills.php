@@ -12,4 +12,14 @@ class Skills extends Model
      * @var array
      */
     protected $guarded = [];
+
+    public function updateSkills($data)
+    {
+    	$mining = $data['mining'];
+
+    	$this->update([
+    		'mining_level' => $mining['level'],
+    		'mining_experience' => $mining['exp']
+    	]);
+    }
 }
