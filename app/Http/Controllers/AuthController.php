@@ -41,8 +41,8 @@ class AuthController extends Controller
     }
 
     /**
-     * Update a player's profile across all tables
-     * 
+     * Update a player's profile across all tables.
+     *
      * @return \Illuminate\Http\JsonResponse
      */
     public function update()
@@ -104,7 +104,7 @@ class AuthController extends Controller
         foreach ($skillList as $skill) {
             $skills[$skill] = [
                 'level' => $getSkills[$skill.'_level'],
-                'exp'   => $getSkills[$skill.'_experience']
+                'exp'   => $getSkills[$skill.'_experience'],
             ];
         }
 
