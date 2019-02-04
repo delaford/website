@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Inventory;
+use App\Bank;
 use App\Skills;
 use App\User;
 use App\Wear;
@@ -53,6 +54,8 @@ class AuthController extends Controller
         $data = collect(request('playerData'));
 
         Inventory::where('user_id', $user->id)->update(['data' => collect(request('inventoryData'))]);
+
+        Bank::where('user_id', $user->id)->update(['data' => collect(request('bankData'))]);
 
         Wear::where('user_id', $user->id)->update(request('wearData'));
 
@@ -130,7 +133,10 @@ class AuthController extends Controller
 
         $getInventory = Inventory::find($id);
 
+        $getBank = Bank::find($id);
+
         $player = array_merge($player, ['inventory' => $getInventory['data']]);
+        $player = array_merge($player, ['bank' => $getBank['data']]);
 
         if (auth()->user()) {
             auth()->user()->setOnline();
