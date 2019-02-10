@@ -68,6 +68,14 @@ class RegisterController extends Controller
             'password' => bcrypt($data['password']),
         ]);
 
+        $player->bank->update([
+            'data' => [[
+                'id' => 'coins',
+                'slot' => 0,
+                'qty' => 25
+            ]]
+        ]);
+
         return $player;
     }
 }
