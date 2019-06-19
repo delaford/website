@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Inventory;
 use App\Bank;
+use App\Inventory;
 use App\Skills;
 use App\User;
 use App\Wear;
