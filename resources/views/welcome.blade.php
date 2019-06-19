@@ -4,39 +4,43 @@
     <div class="empty">
         <div class="columns">
             <div class="column col-7">
-                <div class="empty-icon">
-                    <i class="fas fa-cubes fa-5x"></i>
-                </div>
-                <p class="empty-title h5">Welcome to Delaford!</p>
-                <p class="empty-subtitle">Register to play in seconds!</p>
-                <div class="empty-action">
-                    <a href="{{ route('register') }}" class="btn btn-primary">Register</a> or <a href="https://play.delaford.com" class="btn btn-primary">Play Now</a>
-                </div>
-                <p class="empty-subtitle"><em>Summer 2019</em></p>
-                <p class="empty-subtitle" style="margin-top:1em">Keep up-to-date with latest updates<br />on the official <a href="https://delafordgame.wordpress.com">blog</a>.</p>
+                <table class="table table-striped">
+                    <thead class="text-bold">
+                        <tr>
+                            <td>#</td>
+                            <td>Player</td>
+                            <td>Level</td>
+                            <td>Experience</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach($hiscores['skills']['mining'] as $value)
+                        <tr>
+                            <td>{{ $loop->iteration }}</td>
+                            <td>{{ $value['user']['username'] }}</td>
+                            <td>{{ $value['mining_level'] }}</td>
+                            <td>{{ number_format($value['mining_experience']) }}</td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
             </div>
-            <div class="column col-5 text-left">
-                <h4 class="subtitle">Features</h4>
-                <ul>
-                    <li>Kill rats, goblins and more.</li>
-                    <li>Mine your ore; smith your items.</li>
-                    <li>Track your statistics indepth.</li>
-                    <li>Trade &amp; talk with other players.</li>
-                    <li>Complete quests; earn rewards.</li>
-                    <li>Free to play; no fees.</li>
-                    <li>See how you fare in the <a href="{{ url('/hiscores') }}">hiscores</a>.</li>
-                </ul>
+            <div class="column col-5 flex content-center">
+                <div class="column col-12">
+                    <p class="empty-subtitle">Register to play in seconds!</p>
+                    <div class="empty-action">
+                        <a href="{{ route('register') }}" class="btn btn-primary">Register</a> or <a href="https://play.delaford.com" class="btn btn-primary">Play Now</a>
+                    </div>
+
+                    <p class="empty-subtitle pt-3">
+                        Interesting in joining development?
+                    </p>
+
+                    <div class="empty-action">
+                        <a href="https://github.com/delaford/game" class="btn btn-primary">View the Code</a> or <a href="https://docs.delaford.com" class="btn btn-primary">Documentation</a>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="columns mt-6">
-            <div class="column col-12">
-                Interesting in joining development? 
-
-                <div class="empty-action">
-                    <a href="https://github.com/delaford/game" class="btn btn-primary">View the Code</a> or <a href="https://docs.delaford.com" class="btn btn-primary">Documentation</a>
-                </div>
-            </div>
-        </div>
-
     </div>
 @endsection

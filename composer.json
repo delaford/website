@@ -9,10 +9,10 @@
     "type": "project",
     "require": {
         "php": ">=7.0.0",
-        "fideloper/proxy": "~3.3",
-        "laravel/framework": "5.5.*",
+        "fideloper/proxy": "~4.0.0",
+        "laravel/framework": "5.7.*",
         "laravel/tinker": "~1.0",
-        "tymon/jwt-auth": "1.0.0-rc.1",
+        "tymon/jwt-auth": "1.0.0-rc.3",
         "webpatser/laravel-uuid": "^3.0"
     },
     "require-dev": {
