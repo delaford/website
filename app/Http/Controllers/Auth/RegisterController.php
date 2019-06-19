@@ -59,10 +59,10 @@ class RegisterController extends Controller
 
         $player->bank->update([
             'data' => [[
-                'id' => 'coins',
+                'id'   => 'coins',
                 'slot' => 0,
-                'qty' => 25
-            ]]
+                'qty'  => 25,
+            ]],
         ]);
 
         return $player;
