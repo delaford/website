@@ -97,7 +97,7 @@ class AuthController extends Controller
         // Get skills
         $getSkills = Skills::find($id);
 
-        $skillList = ['attack', 'defence', 'mining', 'smithing', 'fishing', 'cooking'];
+        $skillList = ['attack', 'defence', 'mining', 'smithing', 'fishing', 'cooking', 'woodcutting'];
 
         $skills = [];
 

@@ -10,6 +10,11 @@ Route::get('/', function () {
                     ->get()
                     ->sortByDesc('mining_experience')
                     ->take(10),
+	    	'woodcutting' => Skills::where('woodcutting_experience', '>', 5)
+			->with('user:id,username')
+			->get()
+			->sortByDesc('woodcutting_experience')
+			->take(10),
             ],
         ];
 

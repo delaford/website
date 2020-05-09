@@ -15,6 +15,9 @@
                     <li class="tab-item">
                         <a href="#" title="Also coming soon.">Fishing</a>
                     </li>
+		    <li class="tab-item">
+			<a href="#">Woodcutting</a>
+		    </li>
                 </ul>
                 <table class="table table-striped">
                     <thead class="text-bold">
@@ -33,7 +36,15 @@
                             <td>{{ $value['mining_level'] }}</td>
                             <td>{{ number_format($value['mining_experience']) }}</td>
                         </tr>
-                        @endforeach
+			@endforeach
+			@foreach($hiscores['skills']['woodcutting'] as $value)
+			<tr>
+			    <td>{{ $loop->iteration }}</td>
+			    <td>{{ $value['user']['username'] }}</td>
+			    <td>{{ $value['woodcutting_level'] }}</td>
+			    <td>{{ number_format($value['woodcutting_experience']) }}</td>
+			</tr>
+			@endforeach
                     </tbody>
                 </table>
             </div>
