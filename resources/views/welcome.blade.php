@@ -5,17 +5,8 @@
         <div class="columns">
             <div class="column col-7 text-left">
                 <h1>Hiscores</h1>
-                <ul class="tab tab-block">
-                    <li class="tab-item active">
-                        <a href="#">Mining</a>
-                    </li>
-                    <li class="tab-item">
-                        <a href="#" title="Coming soon!">Smithing</a>
-                    </li>
-                    <li class="tab-item">
-                        <a href="#" title="Also coming soon.">Fishing</a>
-                    </li>
-                </ul>
+
+                <h3>Mining</h3>
                 <table class="table table-striped">
                     <thead class="text-bold">
                         <tr>
@@ -32,6 +23,30 @@
                             <td>{{ $value['user']['username'] }}</td>
                             <td>{{ $value['mining_level'] }}</td>
                             <td>{{ number_format($value['mining_experience']) }}</td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+
+                <hr />
+
+                <h3>Smithing</h3>
+                <table class="table table-striped">
+                    <thead class="text-bold">
+                        <tr>
+                            <td>#</td>
+                            <td>Player</td>
+                            <td>Level</td>
+                            <td>Experience</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach($hiscores['skills']['smithing'] as $value)
+                        <tr>
+                            <td>{{ $loop->iteration }}</td>
+                            <td>{{ $value['user']['username'] }}</td>
+                            <td>{{ $value['smithing_level'] }}</td>
+                            <td>{{ number_format($value['smithing_experience']) }}</td>
                         </tr>
                         @endforeach
                     </tbody>

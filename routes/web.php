@@ -5,7 +5,12 @@ use App\Skills;
 Route::get('/', function () {
     $hiscores = [
         'skills' => [
-                'mining' => Skills::where('mining_experience', '>', 5)
+                'mining' => Skills::where('mining_experience', '>', 1)
+                    ->with('user:id,username')
+                    ->get()
+                    ->sortByDesc('mining_experience')
+                    ->take(10),
+                'smithing' => Skills::where('mining_experience', '>', 1)
                     ->with('user:id,username')
                     ->get()
                     ->sortByDesc('mining_experience')
